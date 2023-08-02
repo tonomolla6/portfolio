@@ -53,7 +53,7 @@ body {
   }
 }
 
-a.cursor-hover {
+.cursor-hover {
   color: var(--theme-color-secondary);
   font-weight: bold;
   text-decoration: none;

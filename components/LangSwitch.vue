@@ -66,7 +66,7 @@ const toggleLanguage = () => {
   width: 18px;
   height: 18px;
   border-radius: 100%;
-  background-color: var(--theme-color-primary);
+  background-color: var(--theme-color-secondary);
   transition: transform 0.4s ease;
   pointer-events: none;
   position: relative;

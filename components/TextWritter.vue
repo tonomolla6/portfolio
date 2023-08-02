@@ -61,7 +61,7 @@ watch(texts, () => {
 </script>
 
 
-<style>
+<style scoped>
 .writter {
     z-index: 0;
 }

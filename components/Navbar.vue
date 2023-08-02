@@ -20,13 +20,18 @@
                 nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/contact") {{ $t('contact') }}
             LangSwitch.switch.cursor-hover
             CopyRight(:open="true").copyright2
+            .button.cursor-hover(@click="download") 
+                svg(xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512")
+                    path(d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z")
+                p {{ wind.innerWidth > 1200 ? 'CV' : 'Currículum' }}
 </template>
 
 <script setup>
 import { useTheme } from '~/store/theme';
-
+ 
 const menuActive = ref(false);
 const { themeColorSecondary } = useTheme();
+const wind = computed(() => window);
 
 const toggleMenu = () => {
   menuActive.value = !menuActive.value;
@@ -35,6 +40,13 @@ const toggleMenu = () => {
       menuActive.value = false;
     }, 500);
   }
+};
+
+const download = async () => {
+    const link = document.createElement('a');
+    link.href = '/curriculum-default.pdf';
+    link.download = 'Currículum ' + (new Date()).getFullYear() + '.pdf';
+    link.click();
 };
 
 const handleLinkClick = () => {
@@ -156,6 +168,22 @@ p.hello {
     top: 25px;
     right: 35px;
     cursor: pointer;
+}
+
+.button {
+    padding: 5px 10px;
+    margin: 10px;
+    background: var(--theme-color-secondary) !important;
+    color: var(--theme-backgroud-primary) !important;
+    border: 1px solid var(--theme-color-secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button p {
+    margin: 0px;
+    margin-left: 10px;
 }
 
 @keyframes fadeIn {
