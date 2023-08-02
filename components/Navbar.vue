@@ -192,7 +192,6 @@ div.hello {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: -20px;
 }
 
 @keyframes fadeIn {
@@ -206,7 +205,7 @@ div.hello {
             margin-right: -20px;
         }
     
-        .logo {
+    .logo {
         margin-left: -20px;
     }
 }
