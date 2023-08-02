@@ -42,11 +42,11 @@ body {
 }
 
 .limit {
-  max-width: 1120px;
+  max-width: 1300px;
   margin: auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .limit {
     margin-left: 50px;
     margin-right: 50px;

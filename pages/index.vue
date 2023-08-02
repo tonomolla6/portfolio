@@ -51,7 +51,9 @@ Stars
 
     .home-content {
         justify-content: right;
+        flex-direction: column;
     }
+    
 }
 
 @media (max-width: 640px) {

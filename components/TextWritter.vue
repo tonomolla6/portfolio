@@ -112,10 +112,6 @@ watch(texts, () => {
 }
 
 @media (max-width: 800px) {
-    .home-content {
-        flex-direction: column;
-    }
-
     .writter h1 {
         font-size: 35px;
         margin-bottom: 20px;
