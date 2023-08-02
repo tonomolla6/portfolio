@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "portfolio",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -10,7 +10,13 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.0.0-rc.1",
     "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5"
+    "nuxt": "^3.6.5",
+    "vue-i18n": "^9.2.2"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2",
+    "vite-plugin-pug": "^0.3.2"
   }
 }
