@@ -27,5 +27,5 @@ jobs:
           script: |
             cd ${{ secrets.SERVER_PROJECT_PATH }}
             git pull origin main
-            npm install --production
+            npm install
             npm run generate
