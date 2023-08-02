@@ -1,7 +1,7 @@
 <template lang="pug">
 .app
   Pagination
-  ColorPalette
+  ColorPalette(v-if="wind.innerWidth >= 1200 || route.name == 'index'")
   Navbar
   Cursor(v-if="wind.innerWidth >= 1200")
     NuxtPage
@@ -11,11 +11,13 @@
 <script>
 import { watch } from 'vue';
 import { useTheme } from '~/store/theme';
+import { useRoute } from 'vue-router';
 
 export default {
   setup() {
     const { themeColorPrimary } = useTheme();
     const wind = computed(() => window);
+    const route = useRoute();
 
     if (!localStorage.getItem('themeColorPrimary')) 
       localStorage.setItem('themeColorPrimary', '#76b356')
@@ -25,7 +27,8 @@ export default {
     });
 
     return {
-      wind
+      wind,
+      route
     };
   },
 };
