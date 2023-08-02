@@ -3,8 +3,9 @@
   Pagination
   ColorPalette
   Navbar
-  Cursor
+  Cursor(v-if="wind.innerWidth >= 1200")
     NuxtPage
+  NuxtPage(v-else)
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import { useTheme } from '~/store/theme';
 export default {
   setup() {
     const { themeColorPrimary } = useTheme();
+    const wind = computed(() => window);
 
     if (!localStorage.getItem('themeColorPrimary')) 
       localStorage.setItem('themeColorPrimary', '#76b356')
@@ -22,7 +24,9 @@ export default {
       document.documentElement.style.setProperty('--theme-color-primary', newColor);
     });
 
-    return {};
+    return {
+      wind
+    };
   },
 };
 </script>
