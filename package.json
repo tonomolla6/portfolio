@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.2",
+    "pdf-lib": "^1.17.1",
     "vite-plugin-pug": "^0.3.2"
   }
 }

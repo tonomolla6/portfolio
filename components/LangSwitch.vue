@@ -9,7 +9,6 @@
 </template>
   
 <script setup>
-import { ref, watchEffect } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const i18n = useI18n();

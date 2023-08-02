@@ -1,5 +1,6 @@
 <template lang="pug">
 .app
+  Pagination
   ColorPalette
   Navbar
   Cursor
@@ -43,6 +44,13 @@ body {
 .limit {
   max-width: 1120px;
   margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .limit {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 }
 
 a.cursor-hover {

@@ -20,18 +20,17 @@ const typeEffect = async () => {
     while (true) {
         clear.value = true;
 
-        if (textIndex >= texts.value.length) textIndex = 0; // Reinicia si alcanza la última palabra
+        if (textIndex >= texts.value.length) textIndex = 0; 
         selected.value = "";
         
-        // Escribe la palabra actual
         for (index = 0; index < texts.value[textIndex].length; index++) {
             if (!clear.value)
                 break;
 
             selected.value += texts.value[textIndex].charAt(index);
-            await new Promise(res => setTimeout(res, 40)); // Espera 40 ms
+            await new Promise(res => setTimeout(res, 40));
         }
-        await new Promise(res => setTimeout(res, 4000)); // Espera 4 segundos antes de la siguiente palabra    
+        await new Promise(res => setTimeout(res, 4000));    
         
         textIndex++;
     }
@@ -46,14 +45,13 @@ onMounted(() => {
         typeEffect();
 })
 
-const download = () => {
-  const link = document.createElement('a');
-  link.href = '/curriculum-2023.pdf';
-  link.download = 'Currículum 2023.pdf'; // El nombre del archivo descargado, puedes cambiarlo si lo necesitas
-  link.click();
+const download = async () => {
+    const link = document.createElement('a');
+    link.href = '/curriculum-default.pdf';
+    link.download = 'Currículum ' + (new Date()).getFullYear() + '.pdf';
+    link.click();
 };
 
-// Escuchamos los cambios en el idioma y reiniciamos el efecto de escritura
 watch(texts, () => {
     index = 0;
     textIndex = 0;
@@ -110,6 +108,21 @@ watch(texts, () => {
     }
     50% {
         color: var(--theme-color-primary);
+    }
+}
+
+@media (max-width: 800px) {
+    .home-content {
+        flex-direction: column;
+    }
+
+    .writter h1 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .writter p {
+        font-size: 20px;
     }
 }
 </style>

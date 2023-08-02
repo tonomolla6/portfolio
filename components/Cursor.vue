@@ -1,7 +1,7 @@
 <template>
     <div>
         <div ref="cursorInner" class="cursor cursor--small"></div>
-        <slot></slot> <!-- Aquí irán los contenidos de la vista donde utilices el componente -->
+        <slot></slot>
     </div>
 </template>
 

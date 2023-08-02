@@ -15,5 +15,11 @@
     "download-cv": "Descargar CV",
     "developed": "Desarrollado con Nuxt3 por ",
     "code": "Código fuente ",
-    "here": "aqui."
+    "here": "aqui.",
+    "presentation": "Presentación",
+    "learn-more-about-me": "Saber más sobre mí",
+    "projects": "Proyectos",
+    "work-experience": "Trayectoria laboral",
+    "all-ive-learned": "Todo lo aprendido",
+    "send-message": "Enviar mensaje"
 }

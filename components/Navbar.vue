@@ -4,23 +4,47 @@
         CopyRight.copyright
         .block-1
             p.hello {{ $t('hello') }}
-
-        .block-2
+            .hamburger.cursor-hover(@click="toggleMenu")
+                svg(xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512")
+                    path(:fill="themeColorSecondary" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z")
+        .block-2(:class="{ 'active': menuActive }")
+            .close-button.cursor-hover(@click="toggleMenu")
+                svg(xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 0 384 512")
+                    path(:fill="themeColorSecondary" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z")
             .options
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/") {{ $t('home') }}
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/about") {{ $t('about') }}
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/portfolio") {{ $t('portfolio') }}
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/experience") {{ $t('experience') }}
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/skills") {{ $t('skills') }}
-                nuxt-link.cursor-hover(exact-active-class="active-link" to="/contact") {{ $t('contact') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/") {{ $t('home') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/about") {{ $t('about') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/portfolio") {{ $t('portfolio') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/experience") {{ $t('experience') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/skills") {{ $t('skills') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/contact") {{ $t('contact') }}
             LangSwitch.switch.cursor-hover
+            CopyRight(:open="true").copyright2
 </template>
 
-<script>
+<script setup>
+import { useTheme } from '~/store/theme';
 
+const menuActive = ref(false);
+const { themeColorSecondary } = useTheme();
+
+const toggleMenu = () => {
+  menuActive.value = !menuActive.value;
+  if (!menuActive.value) {
+    setTimeout(() => {
+      menuActive.value = false;
+    }, 500);
+  }
+};
+
+const handleLinkClick = () => {
+  if (window.innerWidth <= 1200) {
+    toggleMenu();
+  }
+};
 </script>
 
-<style>
+<style scoped>
 .navbar {
     background-color: var(--theme-backgroud-primary);
     position: absolute;
@@ -80,5 +104,114 @@ p.hello {
 
 .active-link {
     color: var(--theme-color-primary) !important;
+}
+
+.block-2.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--theme-backgroud-secondary);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--theme-color-primary);
+    z-index: 2;
+    overflow: hidden;
+    min-width: 100%;
+    opacity: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s forwards;
+}
+
+.block-2.active .options {
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+}
+
+.active .switch {
+    margin-left: 0px;
+}
+
+.active a {
+    margin: 2px 0px;
+}
+
+.block-2.active .options ul {
+  list-style: none;
+  padding: 0;
+}
+
+.block-2.active .options ul li {
+  margin: 15px 0;
+  font-size: 24px;
+}
+
+.block-2.active .close-button {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+    .p.hello {
+        display: none;
+    }
+    
+    .block-2 {
+        display: none;
+    }
+    
+    .block-2.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .close-button {
+        display: block;
+    }
+
+    .block-1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        display: none !important;
+    }
+
+    .block-2 a {
+        font-size: 23px;
+    }
+}
+
+@media (min-width: 1200px) {
+  .hamburger {
+    display: none;
+  }
+
+  .close-button {
+    display: none;
+  }
+
+  .copyright2 {
+    display: none !important;
+  }
 }
 </style>

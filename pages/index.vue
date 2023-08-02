@@ -2,7 +2,7 @@
 Stars
 .home
     .limit.home-content
-        ImageHome.image-home(:size="330" :image="'/home.jpg'")
+        ImageHome.image-home(:image="'/home.jpg'")
         TextWritter.text-writter
 </template>
 
@@ -32,6 +32,37 @@ Stars
 }
 
 .text-writter {
-    width: 70%;
+    width: calc(70% - 40px);
+    margin-right: 40px;
+}
+
+@media (max-width: 800px) {
+    .image-home {
+        width: 250px;
+        height: 250px;
+        margin: 20px 0px;
+        margin-right: 40px;
+    }
+
+    .text-writter {
+        width: 70%;
+        margin: 0px;
+    }
+
+    .home-content {
+        justify-content: right;
+    }
+}
+
+@media (max-width: 640px) {
+    .text-writter {
+        width: 85%;
+    }
+}
+
+@media (max-width: 500px) {
+    .text-writter {
+        width: 100%;
+    }
 }
 </style>

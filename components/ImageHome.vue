@@ -1,5 +1,5 @@
 <template lang="pug">
-.avatar(:style="{ width: size + 'px', height: size + 'px' }")
+.avatar
     .image(:style="{ backgroundImage: 'url(' + image + ')' }")
 </template>
 
@@ -21,6 +21,8 @@ export default {
 <style scoped>
 .avatar {
     position: relative;
+    width: 330px;
+    height: 330px;
 }
 
 .image {

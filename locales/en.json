@@ -15,5 +15,11 @@
     "download-cv": "Download CV",
     "developed": "Developed with Nuxt3 by ",
     "code": "Source code ",
-    "here": "here."
+    "here": "here.",
+    "presentation": "Presentation",
+    "learn-more-about-me": "Learn more about me",
+    "projects": "Projects",
+    "work-experience": "Work experience",
+    "all-ive-learned": "All I've learned",
+    "send-message": "Send message"
 }
