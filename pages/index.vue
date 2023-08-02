@@ -1,13 +1,14 @@
 <template lang="pug">
+Stars
 .home
     .limit.home-content
         ImageHome.image-home(:size="330" :image="'/home.jpg'")
         TextWritter.text-writter
 </template>
 
-<style>
+<style scoped>
 .home {
-    background-color: #111;
+    background-color: var(--theme-backgroud-secondary);
     height: calc(100vh - 104px);
     width: 100vw;
     overflow: hidden;
@@ -21,7 +22,7 @@
 }
 
 .text-writter {
-    color: white;
+    color: var(--theme-color-secondary);
     margin-left: 70px;
     margin-bottom: 50px;
 }

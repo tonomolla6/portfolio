@@ -25,33 +25,37 @@ export default {
                     gsap.to(cursorInner.value, 0.15, { scale: 1 });
                 });
 
-                const hoverElements = document.querySelectorAll('.cursor-hover');
-
-                // Agregar eventos de mouseover y mouseout a esos elementos
-                hoverElements.forEach(el => {
-                    el.addEventListener('mouseover', () => {
-                        gsap.to(cursorInner.value, 0.15, { background: localStorage.getItem('themeColor') });
-                    });
-                    el.addEventListener('mouseout', () => {
-                        gsap.to(cursorInner.value, 0.15, { background: 'white' });
-                    });
+                // Inicia la observación de cambios en el DOM
+                const observer = new MutationObserver(() => {
+                    updateCursorHoverEvents();
                 });
+                observer.observe(document.body, { childList: true, subtree: true });
 
                 function updateCursorPosition(e) {
                     mouse.x = e.pageX;
                     mouse.y = e.pageY;
                 }
 
-                // function updateCursor() {
-                //     gsap.set(cursorInner.value, { x: mouse.x, y: mouse.y });
-                //     requestAnimationFrame(updateCursor);
-                // }
+                function updateCursorHoverEvents() {
+                    const hoverElements = document.querySelectorAll('.cursor-hover');
+
+                    // Agregar eventos de mouseover y mouseout a esos elementos
+                    hoverElements.forEach(el => {
+                        el.addEventListener('mouseover', () => {
+                            gsap.to(cursorInner.value, 0.15, { background: localStorage.getItem('themeColorPrimary') });
+                        });
+                        el.addEventListener('mouseout', () => {
+                            gsap.to(cursorInner.value, 0.15, { background: localStorage.getItem('themeColorSecondary') });
+                        });
+                    });
+                }
 
                 function updateCursor() {
-                    gsap.to(cursorInner.value, { x: mouse.x, y: mouse.y, duration: 0 });
+                    gsap.to(cursorInner.value, { x: mouse.x, y: mouse.y, duration: 0.01 });
                     requestAnimationFrame(updateCursor);
                 }
 
+                updateCursorHoverEvents();
                 updateCursor();
             }
         });
@@ -62,6 +66,7 @@ export default {
     },
 };
 </script>
+
 
 <style scoped>
 * {
@@ -83,7 +88,7 @@ export default {
 
 .cursor--small {
     --size: 9.6px;
-    background: #fff;
+    background: var(--theme-color-secondary);
     transform: translate(-50%, -50%);
 }
 </style>

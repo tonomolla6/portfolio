@@ -7,12 +7,12 @@
 
         .block-2
             .options
-                nuxt-link.cursor-hover(to="/") {{ $t('home') }}
-                nuxt-link.cursor-hover(to="/about") {{ $t('about') }}
-                nuxt-link.cursor-hover(to="/portfolio") {{ $t('potfolio') }}
-                nuxt-link.cursor-hover(to="/experience") {{ $t('experience') }}
-                nuxt-link.cursor-hover(to="/skills") {{ $t('skills') }}
-                nuxt-link.cursor-hover(to="/contact") {{ $t('contact') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/") {{ $t('home') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/about") {{ $t('about') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/portfolio") {{ $t('portfolio') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/experience") {{ $t('experience') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/skills") {{ $t('skills') }}
+                nuxt-link.cursor-hover(exact-active-class="active-link" to="/contact") {{ $t('contact') }}
             LangSwitch.switch.cursor-hover
 </template>
 
@@ -22,11 +22,11 @@
 
 <style>
 .navbar {
-    background-color: black;
+    background-color: var(--theme-backgroud-primary);
     position: absolute;
     top: 0px;
     width: 100vw;
-    color: white;
+    color: var(--theme-color-secondary);
     height: 104px;
 }
 
@@ -53,20 +53,20 @@ p.hello {
 
 .block-2 a {
     text-decoration: none;
-    color: white;
+    color: var(--theme-color-secondary);
     text-transform: uppercase;
     font-size: 16px;
     padding: 10px;
-    box-shadow: inset 0 0 0 0 white;
+    box-shadow: inset 0 0 0 0 var(--theme-color-secondary);
     margin: 10px;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
     font-weight: 500;
 }
 
 .block-2 a:hover {
-    cursor: none;
-    color: #111;
-    box-shadow: inset 200px 0 0 0 white;
+    cursor: pointer;
+    color: var(--theme-backgroud-primary);
+    box-shadow: inset 200px 0 0 0 var(--theme-color-secondary);
 }
 
 .copyright {
@@ -76,5 +76,9 @@ p.hello {
 
 .switch {
     margin-left: 20px;
+}
+
+.active-link {
+    color: var(--theme-color-primary) !important;
 }
 </style>

@@ -3,8 +3,8 @@
     label.like-switch-label
         input.like-switch(type="checkbox" v-model="isChecked" @change="toggleLanguage")
         .switch-cover
-            span.switch-lang.switch-lang--en(:class="{ 'checked': currentLang === langs[0] }") {{ langs[0] }}
-            span.switch-lang.switch-lang--es(:class="{ 'checked': currentLang === langs[1] }") {{ langs[1] }}
+            span.switch-lang.switch-lang--en(:class="{ 'checked': currentLang === langs[1] }") {{ langs[0] }}
+            span.switch-lang.switch-lang--es(:class="{ 'checked': currentLang === langs[0] }") {{ langs[1] }}
             .switch-circle
 </template>
   
@@ -20,11 +20,11 @@ const currentLang = ref(i18n.locale.value);
 const langs = i18n.availableLocales.map(locale => locale);
 
 watchEffect(() => {
-    currentLang.value = isChecked.value ? langs[1] : langs[0];
+    currentLang.value = isChecked.value ? langs[0] : langs[1];
 });
 
 const toggleLanguage = () => {
-    i18n.locale.value = isChecked.value ? langs[1] : langs[0];
+    i18n.locale.value = isChecked.value ? langs[0] : langs[1];
 };
 </script>
   
@@ -59,7 +59,7 @@ const toggleLanguage = () => {
     background-color: transparent;
     transition: background-color 0.4s;
     padding: 6px;
-    border: 1px solid #fff;
+    border: 1px solid var(--theme-color-secondary);
     position: relative;
 }
 
@@ -67,7 +67,7 @@ const toggleLanguage = () => {
   width: 18px;
   height: 18px;
   border-radius: 100%;
-  background-color: #fff;
+  background-color: var(--theme-color-primary);
   transition: transform 0.4s ease;
   pointer-events: none;
   position: relative;
@@ -78,7 +78,7 @@ const toggleLanguage = () => {
 .switch-lang {
   position: absolute;
   top: 6px;
-  color: #fff;
+  color: var(--theme-color-secondary);
   transition: opacity 0.2s;
 }
 

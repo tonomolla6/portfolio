@@ -12,5 +12,8 @@
     "daw": "Web Application Developer",
     "smx": "Technician in Microcomputer Systems and Networks",
     "ing": "Computer Engineer",
-    "download-cv": "Download CV"
+    "download-cv": "Download CV",
+    "developed": "Developed with Nuxt3 by ",
+    "code": "Source code ",
+    "here": "here."
 }

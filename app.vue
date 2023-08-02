@@ -1,5 +1,6 @@
 <template lang="pug">
 .app
+  ColorPalette
   Navbar
   Cursor
     NuxtPage
@@ -11,13 +12,13 @@ import { useTheme } from '~/store/theme';
 
 export default {
   setup() {
-    const { themeColor } = useTheme();
+    const { themeColorPrimary } = useTheme();
 
-    if (!localStorage.getItem('themeColor')) 
-      localStorage.setItem('themeColor', '#ff5733')
+    if (!localStorage.getItem('themeColorPrimary')) 
+      localStorage.setItem('themeColorPrimary', '#76b356')
 
-    watch(themeColor, (newColor) => {
-      document.documentElement.style.setProperty('--theme-color', newColor);
+    watch(themeColorPrimary, (newColor) => {
+      document.documentElement.style.setProperty('--theme-color-primary', newColor);
     });
 
     return {};
@@ -29,7 +30,6 @@ export default {
 body {
   margin: 0px;
   font-family: system-ui;
-  cursor: none;
 }
 
 * {
@@ -46,17 +46,16 @@ body {
 }
 
 a.cursor-hover {
-  color: white;
+  color: var(--theme-color-secondary);
   font-weight: bold;
   text-decoration: none;
-  cursor: none;
-}
-
-.color {
-  color: var(--theme-color);
+  cursor: pointer;
 }
 
 :root {
-  --theme-color: #ff5733; /* Valor predeterminado */
+  --theme-color-primary: #76b356; 
+  --theme-color-secondary: #FFFFFF; 
+  --theme-backgroud-primary: #000000; 
+  --theme-backgroud-secondary: #111111;
 }
 </style>

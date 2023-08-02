@@ -12,5 +12,8 @@
     "daw": "Desarrollador de Aplicaciones Web",
     "smx": "Técnico en Sistemas Microinformáticos y Redes",
     "ing": "Ingeniero Informático",
-    "download-cv": "Descargar CV"
+    "download-cv": "Descargar CV",
+    "developed": "Desarrollado con Nuxt3 por ",
+    "code": "Código fuente ",
+    "here": "aqui."
 }
