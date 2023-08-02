@@ -13,6 +13,9 @@ export default {
   setup() {
     const { themeColor } = useTheme();
 
+    if (!localStorage.getItem('themeColor')) 
+      localStorage.setItem('themeColor', '#ff5733')
+
     watch(themeColor, (newColor) => {
       document.documentElement.style.setProperty('--theme-color', newColor);
     });
@@ -29,6 +32,10 @@ body {
   cursor: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .app {
   padding-top: 104px;
 }
@@ -38,17 +45,18 @@ body {
   margin: auto;
 }
 
-.link {
-  color: red;
+a.cursor-hover {
+  color: white;
+  font-weight: bold;
   text-decoration: none;
+  cursor: none;
+}
+
+.color {
+  color: var(--theme-color);
 }
 
 :root {
   --theme-color: #ff5733; /* Valor predeterminado */
-}
-
-/* Utiliza la variable en tus estilos */
-button {
-  background-color: var(--theme-color);
 }
 </style>

@@ -14,10 +14,7 @@ export default {
         const cursorInner = ref(null);
 
         onMounted(() => {
-
-            if (cursorInner.value) { // Ensure they are not null
-
-                let isStuck = false;
+            if (cursorInner.value) {
                 let mouse = { x: -100, y: -100 };
 
                 document.body.addEventListener('pointermove', updateCursorPosition);
@@ -28,13 +25,30 @@ export default {
                     gsap.to(cursorInner.value, 0.15, { scale: 1 });
                 });
 
+                const hoverElements = document.querySelectorAll('.cursor-hover');
+
+                // Agregar eventos de mouseover y mouseout a esos elementos
+                hoverElements.forEach(el => {
+                    el.addEventListener('mouseover', () => {
+                        gsap.to(cursorInner.value, 0.15, { background: localStorage.getItem('themeColor') });
+                    });
+                    el.addEventListener('mouseout', () => {
+                        gsap.to(cursorInner.value, 0.15, { background: 'white' });
+                    });
+                });
+
                 function updateCursorPosition(e) {
                     mouse.x = e.pageX;
                     mouse.y = e.pageY;
                 }
 
+                // function updateCursor() {
+                //     gsap.set(cursorInner.value, { x: mouse.x, y: mouse.y });
+                //     requestAnimationFrame(updateCursor);
+                // }
+
                 function updateCursor() {
-                    gsap.set(cursorInner.value, { x: mouse.x, y: mouse.y });
+                    gsap.to(cursorInner.value, { x: mouse.x, y: mouse.y, duration: 0 });
                     requestAnimationFrame(updateCursor);
                 }
 
@@ -65,11 +79,6 @@ export default {
     top: 0;
     pointer-events: none;
     z-index: 100;
-}
-
-.cursor--large {
-    --size: 24px;
-    border: 2px solid #fff;
 }
 
 .cursor--small {

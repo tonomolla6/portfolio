@@ -7,14 +7,13 @@
 
         .block-2
             .options
-                nuxt-link(to="/") {{ $t('home') }}
-                nuxt-link(to="/about") {{ $t('about') }}
-                nuxt-link(to="/portfolio") {{ $t('potfolio') }}
-                nuxt-link(to="/experience") {{ $t('experience') }}
-                nuxt-link(to="/skills") {{ $t('skills') }}
-                //- nuxt-link(to="/testimonials") {{ $t('testimonials') }}
-                nuxt-link(to="/contact") {{ $t('contact') }}
-            LangSwitch.switch
+                nuxt-link.cursor-hover(to="/") {{ $t('home') }}
+                nuxt-link.cursor-hover(to="/about") {{ $t('about') }}
+                nuxt-link.cursor-hover(to="/portfolio") {{ $t('potfolio') }}
+                nuxt-link.cursor-hover(to="/experience") {{ $t('experience') }}
+                nuxt-link.cursor-hover(to="/skills") {{ $t('skills') }}
+                nuxt-link.cursor-hover(to="/contact") {{ $t('contact') }}
+            LangSwitch.switch.cursor-hover
 </template>
 
 <script>
@@ -73,5 +72,9 @@ p.hello {
 .copyright {
     position: absolute;
     top: 104px;
+}
+
+.switch {
+    margin-left: 20px;
 }
 </style>

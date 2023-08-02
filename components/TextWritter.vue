@@ -1,15 +1,15 @@
 <template lang="pug">
 .writter
-    h1 Tono Mollá
+    h1 Tono Mollá González
     p {{ selected }}<span class="cursor">|</span>
-    .button {{ $t('download-cv') }}
+    .button.cursor-hover {{ $t('download-cv') }}
 </template>
-    
+
 <script setup>
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const texts = [t('daw'), t('dam'), t('smx')];
+const texts = [ t('daw'), t('dam'), t('smx') ];
 const selected = ref("");
 
 let index = 0;
@@ -36,13 +36,12 @@ const typeEffect = () => {
     }
 };
 
-
 onMounted(() => {
     typeEffect();
 });
 
 </script>
-    
+
 <style>
 /* Aquí puedes agregar cualquier estilo que quieras aplicar a tu componente */
 .writter h1 {
@@ -57,19 +56,27 @@ onMounted(() => {
 }
 
 .cursor {
+    color: var(--theme-color);
     animation: blink 1s step-start infinite;
 }
 
 .button {
-    width: max-content;
+    text-decoration: none;
+    color: white;
     padding: 20px;
     border: 1px solid white;
     margin-top: 32px;
     text-transform: uppercase;
+    box-shadow: inset 0 0 0 0 white;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    max-width: max-content;
+    font-weight: 500;
 }
 
 .button:hover {
-    cursor: pointer;
+    cursor: none;
+    color: #111;
+    box-shadow: inset 200px 0 0 0 white;
 }
 
 @keyframes blink {
@@ -77,7 +84,7 @@ onMounted(() => {
         color: transparent;
     }
     50% {
-        color: inherit;
+        color: var(--theme-color);
     }
 }
 </style>

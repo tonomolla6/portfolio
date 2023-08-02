@@ -2,12 +2,8 @@
 .home
     .limit.home-content
         ImageHome.image-home(:size="330" :image="'/home.jpg'")
-        TextWritter(:texts="texts").text-writter
+        TextWritter.text-writter
 </template>
-
-<script scoped>
-const texts = ['daw', 'dam', 'smx'];
-</script>
 
 <style>
 .home {
