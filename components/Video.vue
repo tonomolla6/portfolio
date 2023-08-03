@@ -7,7 +7,7 @@
                 </svg>
             </div>
         </a>
-        <video v-if="videoVisible" controls>
+        <video v-if="videoVisible" controls ref="videoRef">
             <source :src="videoSource" type="video/mp4" />
             <p>Tu navegador no soporta la reproducción de videos. Por favor actualízalo o utiliza otro navegador.</p>
         </video>
@@ -20,10 +20,9 @@ import { useI18n } from "vue-i18n";
 const videoVisible = ref(false);
 const { locale } = useI18n();
 const videoSource = ref(`/about.mp4`);
-
+const videoRef = ref(null);
 const updateVideoSource = () => {
     videoSource.value = locale.value === 'es' ? '/sobre.mp4' : '/about.mp4';
-    // Reset the video visibility when the language changes
     videoVisible.value = false;
 };
 
@@ -31,6 +30,9 @@ watchEffect(updateVideoSource);
 
 const showVideo = () => {
     videoVisible.value = true;
+    nextTick(() => { 
+        console.log(videoRef.value.play())
+    });
 };
 </script>
   
