@@ -18,6 +18,25 @@ export default {
     const { themeColorPrimary } = useTheme();
     const wind = computed(() => window);
     const route = useRoute();
+    const pages_without_scroll = ['/'];
+
+    onMounted(() => {
+      checkRoute(route.path);
+    });
+    
+    watch(() => route.path, (newPath) => checkRoute(newPath));
+
+    const checkRoute = (newPath) => {
+      const htmlElement = document.querySelector('html');
+
+      if (pages_without_scroll.includes(newPath)) {
+        htmlElement.classList.add('no-scroll');
+        htmlElement.classList.remove('scroll');
+      } else {
+        htmlElement.classList.add('scroll');
+        htmlElement.classList.remove('no-scroll');
+      }
+    }
 
     if (!localStorage.getItem('themeColorPrimary')) 
       localStorage.setItem('themeColorPrimary', '#76b356')
@@ -35,6 +54,19 @@ export default {
 </script>
 
 <style>
+/* styles.css */
+.no-scroll {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.scroll {
+  height: 100%;
+  overflow: inherit;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0px;
   font-family: system-ui;

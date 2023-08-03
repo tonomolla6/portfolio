@@ -9,7 +9,7 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const texts = computed(() => [ t('daw'), t('dam'), t('smx') ]);
+const texts = computed(() => [ t('daw'), t('dam'), t('smx'), t('ing') ]);
 const selected = ref("");
 
 let index = 0;
@@ -23,6 +23,7 @@ const typeEffect = async () => {
         if (textIndex >= texts.value.length) textIndex = 0; 
         selected.value = "";
         
+        console.log(texts.value[textIndex])
         for (index = 0; index < texts.value[textIndex].length; index++) {
             if (!clear.value)
                 break;
@@ -40,10 +41,10 @@ onBeforeMount(() => {
     typeEffect();
 });
 
-onMounted(() => {
-    if (textIndex == 0) 
-        typeEffect();
-})
+// onMounted(() => {
+//     if (textIndex == 0) 
+//         typeEffect();
+// })
 
 const download = async () => {
     const link = document.createElement('a');

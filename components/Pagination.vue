@@ -121,7 +121,7 @@ const nextPageName = computed(() => currentPageIndex.value < routing.length - 1 
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 760px) {
     .pagination {
         display: none;
     }

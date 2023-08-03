@@ -13,11 +13,14 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@types/node": "^18.17.1",
     "nuxt": "^3.6.5",
+    "sass": "^1.64.2",
+    "sass-loader": "^13.3.2",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
     "gsap": "^3.12.2",
     "pdf-lib": "^1.17.1",
-    "vite-plugin-pug": "^0.3.2"
+    "vite-plugin-pug": "^0.3.2",
+    "vue-the-mask": "^0.11.1"
   }
 }

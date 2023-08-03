@@ -8,21 +8,32 @@
             </div>
         </a>
         <video v-if="videoVisible" controls>
-            <source src="/about.mp4" type="video/mp4" />
+            <source :src="videoSource" type="video/mp4" />
             <p>Tu navegador no soporta la reproducción de videos. Por favor actualízalo o utiliza otro navegador.</p>
         </video>
     </div>
 </template>
   
 <script setup>
-import { ref } from 'vue';
+import { useI18n } from "vue-i18n";
 
 const videoVisible = ref(false);
+const { locale } = useI18n();
+const videoSource = ref(`/about.mp4`);
+
+const updateVideoSource = () => {
+    videoSource.value = locale.value === 'es' ? '/sobre.mp4' : '/about.mp4';
+    // Reset the video visibility when the language changes
+    videoVisible.value = false;
+};
+
+watchEffect(updateVideoSource);
 
 const showVideo = () => {
     videoVisible.value = true;
 };
 </script>
+  
   
 <style>
 .video-box img {

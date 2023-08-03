@@ -1,31 +1,28 @@
 <template lang="pug">
 .about
     .avatar
-        h2 Reproducir con Inteligencia Artificial
+        h2 {{ $t('play-ia') }}
         Video.cursor-hover
     
-    .title-mobile 
-        h1 Pequeña descripcion sobre mi
     .text
         p {{ $t('about1') }}
         p {{ $t('about2') }}
         p {{ $t('about3') }}
 </template>
-  
-<script>
-</script>
+
+<style>
+.about {
+    height: 100%;
+    overflow: initial;
+}
+</style>
 
 <style scoped>
-html {
-    height: 100%;
-    overflow: hidden;
-}
 
 .about {
     background-color: var(--theme-backgroud-secondary);
-    height: calc(100vh - 104px);
-    width: 100vw;
-    overflow: hidden;
+    min-height: calc(100vh - 104px);
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,18 +44,12 @@ video {
     width: calc(50% - 40px);
     margin: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
     color: var(--theme-color-secondary);
     height: 100%;
     text-transform: uppercase;
-}
-
-.avatar h2 {
-    position: absolute;
-    top: 0px;
 }
 
 .about h1 {
@@ -69,6 +60,9 @@ video {
     display: none;
 }
 
+.cursor-hover {
+    height: 300px;
+}
 .title-mobile h1 {
     color: white;
     text-transform: uppercase;
@@ -94,17 +88,28 @@ video {
 
     .cursor-hover {
         width: 100px;
-        height: 170px;
+        height: 200px;
     }
 
     .avatar h2 {
         position: relative;
+    }
+
+    .about {
+        padding: 30px;
+        padding-top: 0px;
+        padding-bottom: 50px;
+    }
+
+    .avatar {
+        margin-top: 0px;
     }
 }
 
 @media (max-width: 700px) {
     .about {
         padding: 30px;
+        padding-top: 0px;
     }
 
     .avatar {
@@ -113,13 +118,13 @@ video {
 }
 
 @media (max-width: 600px) {
-    .avatar {
+    /* .avatar {
         display: none;
     }
 
     .title-mobile {
         display: block;
-    }
+    } */
 }
 
 @media (max-width: 475px) {

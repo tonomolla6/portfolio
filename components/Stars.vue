@@ -7,11 +7,6 @@
 
 
 <style>
-html {
-    height: 100%;
-    overflow: hidden;
-}
-
 .stars {
     position: absolute;
     z-index: 0;
