@@ -461,7 +461,7 @@
 </template>
 
 <script>
-import {mask} from 'vue-the-mask'
+import { mask } from 'vue-the-mask';
 
 export default {
     directives: {mask},
@@ -486,7 +486,9 @@ export default {
     },
     mounted() {
         this.cardNumberTemp = this.otherCardMask;
-        document.getElementById("cardNumber").focus();
+        this.$nextTick(() => {
+            document.getElementById("cardNumber").focus();
+        });
     },
     computed: {
         getCardType() {
@@ -588,7 +590,7 @@ body {
 }
 
 option {
-    background-color: var(--theme-backgroud-primary);
+    background-color: var(--theme-background-primary);
 }
 .card-form {
     max-width: 570px;
@@ -600,7 +602,7 @@ option {
     }
 
     &__inner {
-        background: var(--theme-backgroud-primary);
+        background: var(--theme-background-primary);
         // box-shadow: 3px 13px 30px 0px rgba(21, 34, 67, 0.2);
         box-shadow: none;
         // border-radius: 10px;

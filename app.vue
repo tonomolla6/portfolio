@@ -1,27 +1,33 @@
 <template lang="pug">
-.app
+.app(:class="mode == 1 ? 'app-mode' : ''")
   Pagination
-  ColorPalette(v-if="wind.innerWidth >= 1200 || route.name == 'index'")
+  ColorPalette(v-if="width >= 1200 || route.name == 'index'")
   Navbar
-  Cursor(v-if="wind.innerWidth >= 1200")
+  
+  Cursor(v-if="width >= 1200")
     NuxtPage
   NuxtPage(v-else)
 </template>
 
 <script>
-import { watch } from 'vue';
-import { useTheme } from '~/store/theme';
+import { useModeStore } from '~/store/mode';
+import { useThemeStore } from '~/store/theme';
 import { useRoute } from 'vue-router';
+import { computed, onMounted, watch } from 'vue';
 
 export default {
   setup() {
-    const { themeColorPrimary } = useTheme();
-    const wind = computed(() => window);
+    const modeStore = useModeStore();
+    const themeStore = useThemeStore();
+    const mode = computed(() => modeStore.mode);
     const route = useRoute();
     const pages_without_scroll = ['/'];
 
+    const width = ref(window.innerWidth);
+
     onMounted(() => {
       checkRoute(route.path);
+      themeStore.init();
     });
     
     watch(() => route.path, (newPath) => checkRoute(newPath));
@@ -38,71 +44,25 @@ export default {
       }
     }
 
-    if (!localStorage.getItem('themeColorPrimary')) 
-      localStorage.setItem('themeColorPrimary', '#76b356')
+    window.addEventListener("resize", () => {
+      width.value = window.innerWidth;
 
-    watch(themeColorPrimary, (newColor) => {
-      document.documentElement.style.setProperty('--theme-color-primary', newColor);
+      if (width.value <= 760) {
+        modeStore.changeMode(0);
+      }
     });
 
     return {
-      wind,
-      route
+      width,
+      route,
+      mode
     };
   },
 };
 </script>
 
-<style>
-/* styles.css */
-.no-scroll {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-.scroll {
-  height: 100%;
-  overflow: inherit;
-  overflow-x: hidden;
-}
-
-body {
-  margin: 0px;
-  font-family: system-ui;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.app {
+<style scoped>
+.app-mode {
   padding-top: 104px;
-}
-
-.limit {
-  max-width: 1300px;
-  margin: auto;
-}
-
-@media (max-width: 1400px) {
-  .limit {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-}
-
-.cursor-hover {
-  color: var(--theme-color-secondary);
-  font-weight: bold;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-:root {
-  --theme-color-primary: #76b356; 
-  --theme-color-secondary: #FFFFFF; 
-  --theme-backgroud-primary: #000000; 
-  --theme-backgroud-secondary: #111111;
 }
 </style>

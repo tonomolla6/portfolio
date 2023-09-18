@@ -4,19 +4,16 @@
         .left.cursor-hover
             router-link(:to="{ name: previousPageName }" v-if="previousText && route.name != 'index'")
                 svg(xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 320 512")
-                    path(:fill="themeColorSecondary" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z")
+                    path(fill="var(--theme-color-secondary)" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z")
                 p {{ previousText }}
         .right.cursor-hover
             router-link(:to="{ name: nextPageName }" v-if="nextText && route.name != 'contact'")
                 p {{ nextText }}
                 svg(xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 320 512")
-                    path(:fill="themeColorSecondary" d="M310.6 233.4c12.5 12.5-12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z")
+                    path(fill="var(--theme-color-secondary)" d="M310.6 233.4c12.5 12.5-12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z")
 </template>
 
 <script setup>
-import { useTheme } from '~/store/theme';
-
-const { themeColorSecondary } = useTheme();
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 const i18n = useI18n();
@@ -67,10 +64,10 @@ const nextPageName = computed(() => currentPageIndex.value < routing.length - 1 
     bottom: 0;
     width: 100vw;
     height: 100px;
+    z-index: 3;
 }
 
 .limit {
-    width: 100%;
     display: flex;
     justify-content: space-between;
 }

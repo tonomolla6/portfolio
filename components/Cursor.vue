@@ -6,16 +6,24 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { gsap } from 'gsap';
 
 export default {
     setup() {
         const cursorInner = ref(null);
 
+        let updateCursorPosition;
+        let updateCursor;
+
         onMounted(() => {
             if (cursorInner.value) {
                 let mouse = { x: -100, y: -100 };
+
+                updateCursorPosition = function(e) {
+                    mouse.x = e.pageX;
+                    mouse.y = e.pageY;
+                }
 
                 document.body.addEventListener('pointermove', updateCursorPosition);
                 document.body.addEventListener('pointerdown', () => {
@@ -31,11 +39,6 @@ export default {
                 });
                 observer.observe(document.body, { childList: true, subtree: true });
 
-                function updateCursorPosition(e) {
-                    mouse.x = e.pageX;
-                    mouse.y = e.pageY;
-                }
-
                 function updateCursorHoverEvents() {
                     const hoverElements = document.querySelectorAll('.cursor-hover');
 
@@ -50,14 +53,20 @@ export default {
                     });
                 }
 
-                function updateCursor() {
-                    gsap.to(cursorInner.value, { x: mouse.x, y: mouse.y, duration: 0.01 });
-                    requestAnimationFrame(updateCursor);
+                updateCursor = function() {
+                    if(cursorInner.value) {
+                        gsap.to(cursorInner.value, { x: mouse.x, y: mouse.y, duration: 0.01 });
+                        requestAnimationFrame(updateCursor);
+                    }
                 }
 
                 updateCursorHoverEvents();
                 updateCursor();
             }
+        });
+
+        onUnmounted(() => {
+            document.body.removeEventListener('pointermove', updateCursorPosition);
         });
 
         return {

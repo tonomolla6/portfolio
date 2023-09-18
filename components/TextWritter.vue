@@ -23,7 +23,6 @@ const typeEffect = async () => {
         if (textIndex >= texts.value.length) textIndex = 0; 
         selected.value = "";
         
-        console.log(texts.value[textIndex])
         for (index = 0; index < texts.value[textIndex].length; index++) {
             if (!clear.value)
                 break;
@@ -40,11 +39,6 @@ const typeEffect = async () => {
 onBeforeMount(() => {  
     typeEffect();
 });
-
-// onMounted(() => {
-//     if (textIndex == 0) 
-//         typeEffect();
-// })
 
 const download = async () => {
     const link = document.createElement('a');
@@ -91,15 +85,14 @@ watch(texts, () => {
     margin-top: 32px;
     text-transform: uppercase;
     box-shadow: inset 0 0 0 0 var(--theme-color-secondary);
-    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
     max-width: max-content;
     font-weight: 500;
-    background-color: var(--theme-backgroud-primary);
+    background-color: var(--theme-background-primary);
 }
 
 .button:hover {
     cursor: pointer;
-    color: var(--theme-backgroud-primary);
+    color: var(--theme-background-primary);
     box-shadow: inset 200px 0 0 0 var(--theme-color-secondary);
 }
 

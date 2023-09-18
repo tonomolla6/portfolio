@@ -1,0 +1,61 @@
+.cursor-hover {
+  color: var(--theme-color-secondary);
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Oculta la barra de desplazamiento para Chrome, Safari y Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Oculta la barra de desplazamiento para IE, Edge y Firefox */
+html, body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+p {
+  color: var(--theme-color-secondary);
+}
+
+/* styles.css */
+.no-scroll {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.scroll {
+  height: 100%;
+  overflow: inherit;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0px;
+  font-family: system-ui;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* .app {
+    transition: 0.5s padding-top;
+  } */
+
+.limit {
+  max-width: 1300px;
+  margin: auto;
+}
+
+@media (max-width: 1400px) {
+  .limit {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}

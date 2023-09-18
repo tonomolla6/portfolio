@@ -1,5 +1,5 @@
 <template lang="pug">
-.about
+.about(:class="mode == 1 ? 'about-mode' : ''")
     .avatar
         h2 {{ $t('play-ia') }}
         Video.cursor-hover
@@ -10,18 +10,26 @@
         p {{ $t('about3') }}
 </template>
 
-<style>
-.about {
-    height: 100%;
-    overflow: initial;
-}
-</style>
+<script>
+import { useModeStore } from '~/store/mode';
+
+export default {
+    setup() {
+        const modeStore = useModeStore();
+        const mode = computed(() => modeStore.mode);
+
+        return {
+            mode
+        };
+    },
+};
+</script>
 
 <style scoped>
 
 .about {
-    background-color: var(--theme-backgroud-secondary);
-    min-height: calc(100vh - 104px);
+    background-color: var(--theme-background-secondary);
+    min-height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -29,6 +37,10 @@
     padding: 80px;
     padding-bottom: 80px;
 } 
+
+.about-mode {
+    min-height: calc(100vh - 104px);
+}
 
 video {
     width: 100%;
@@ -60,9 +72,6 @@ video {
     display: none;
 }
 
-.cursor-hover {
-    height: 300px;
-}
 .title-mobile h1 {
     color: white;
     text-transform: uppercase;

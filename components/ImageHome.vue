@@ -6,10 +6,6 @@
 <script>
 export default {
     props: {
-        size: {
-            type: Number,
-            required: true
-        },
         image: {
             type: String,
             required: true
