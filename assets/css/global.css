@@ -79,7 +79,6 @@ h6 {
 p {
   color: var(--theme-color-secondary);
   margin-bottom: 1rem;
-  margin: 0px !important;
 }
 
 a {
