@@ -207,7 +207,6 @@ export default {
   max-width: 800px;
   height: 100%;
   background-color: var(--theme-background-primary);
-  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
