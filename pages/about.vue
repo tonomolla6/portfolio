@@ -194,11 +194,11 @@ export default {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-  padding: 130px 0px;
+  padding: 50px 0px 120px 0px;
 }
 
 .about-mode {
-  padding-top: 104px;
+  padding-top: 30px;
   height: calc(100vh - 104px);
 }
 
@@ -274,7 +274,6 @@ export default {
   flex-grow: 1;
   padding: 12px 16px;
   border: none;
-  border-radius: 24px;
   background-color: var(--theme-background-primary);
   color: var(--theme-color-secondary);
   font-size: 1rem;
@@ -285,7 +284,6 @@ export default {
   background-color: var(--theme-color-primary);
   color: white;
   border: none;
-  border-radius: 24px;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
@@ -300,7 +298,8 @@ export default {
   display: inline-block;
   position: relative;
   height: 20px;
-  color: #ffffff73;
+  color: var(--theme-color-secondary);
+  opacity: 50%;
 }
 
 .example-questions {
@@ -315,7 +314,6 @@ export default {
   background-color: var(--theme-background-primary);
   color: var(--theme-color-secondary);
   border: 1px solid var(--theme-color-primary);
-  border-radius: 20px;
   padding: 8px 16px;
   font-size: 0.9rem;
   cursor: pointer;
