@@ -22,9 +22,9 @@
     "work-experience": "Trayectoria laboral",
     "all-ive-learned": "Todo lo aprendido",
     "send-message": "Enviar mensaje",
-    "about1": "Bienvenido a mi espacio virtual. Aquí tendrás un vistazo a mi trayectoria profesional, podrás echar un ojo a mis proyectos públicos y descubrir mis habilidades y logros académicos.    ",
-    "about2": "Desde que era muy pequeño, me he sentido fascinado por la tecnología y la infinita posibilidad de crear con ella. Cada herramienta, lenguaje o plataforma ha sido una puerta abierta a un mundo de innovación y solución de problemas. Pero más allá de la técnica, lo que realmente me motiva son los desafíos, objetivos y metas que se esconden detrás de cada proyecto.    ",
-    "about3": "Aunque sigo siendo joven y lleno de energía para afrontar los desafíos que el mundo del desarrollo tecnológico me presenta, he comprendido que la planificación y organización son esenciales para canalizar ese entusiasmo. A través de mis experiencias, he visto cómo un proyecto bien estructurado puede maximizar la eficiencia y minimizar los errores. Es por ello que disfruto tanto del proceso de trazar planes y estrategias, ya que me permite visualizar y guiar un proyecto desde su concepción hasta su realización exitosa.    ",
+    "about1": "Bienvenido a mi espacio virtual. Aquí tendrás un vistazo a mi trayectoria profesional, podrás echar un ojo a mis proyectos públicos y descubrir mis habilidades y logros académicos.",
+    "about2": "Desde que era muy pequeño, me he sentido fascinado por la tecnología y la infinita posibilidad de crear con ella. Cada herramienta, lenguaje o plataforma ha sido una puerta abierta a un mundo de innovación y solución de problemas. Pero más allá de la técnica, lo que realmente me motiva son los desafíos, objetivos y metas que se esconden detrás de cada proyecto.",
+    "about3": "Aunque sigo siendo joven y lleno de energía para afrontar los desafíos que el mundo del desarrollo tecnológico me presenta, he comprendido que la planificación y organización son esenciales para canalizar ese entusiasmo. A través de mis experiencias, he visto cómo un proyecto bien estructurado puede maximizar la eficiencia y minimizar los errores. Es por ello que disfruto tanto del proceso de trazar planes y estrategias, ya que me permite visualizar y guiar un proyecto desde su concepción hasta su realización exitosa.",
     "card-number": "Numero de tarjeta",
     "card-hold": "Nombre de la tarjeta",
     "contact-title": "FORMULARIO DE CONTACTO",
@@ -33,5 +33,11 @@
     "play-ia": "Reproducir con Inteligencia Artificial",
     "expires": "Expira",
     "full-name": "Nombre completo",
-    "expiration-date": "Fecha de Expiración"
+    "expiration-date": "Fecha de Expiración",
+    "chat-placeholder": "Escribe tu mensaje aquí...",
+    "send": "Enviar",
+    "chat-with-ai": "Chat con Tono AI",
+    "ai-typing": "Tono AI está escribiendo...",
+    "initial-greeting": "¡Hola! Soy Tono AI. Estoy aquí para ayudarte con cualquier pregunta sobre mi experiencia, habilidades o proyectos. ¿En qué puedo ayudarte hoy?",
+    "error-message": "Lo siento, ha ocurrido un error al procesar tu mensaje. Por favor, intenta de nuevo más tarde."
 }

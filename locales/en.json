@@ -33,5 +33,11 @@
     "play-ia": "Play with Artificial Intelligence",
     "expires": "Expires",
     "full-name": "Full Name",
-    "expiration-date": "Expiration Date"
+    "expiration-date": "Expiration Date",
+    "chat-placeholder": "Type your message here...",
+    "send": "Send",
+    "chat-with-ai": "Chat with Tono AI",
+    "ai-typing": "Tono AI is typing...",
+    "initial-greeting": "Hello! I'm Tono AI. I'm here to help you with any questions about my experience, skills, or projects. How can I assist you today?",
+    "error-message": "I'm sorry, an error occurred while processing your message. Please try again later."
 }
