@@ -76,6 +76,11 @@ h6 {
   color: var(--theme-color-secondary);
 }
 
+
+.about p {
+  margin: 0px !important;
+}
+
 p {
   color: var(--theme-color-secondary);
   margin-bottom: 1rem;

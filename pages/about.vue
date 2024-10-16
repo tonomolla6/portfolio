@@ -184,10 +184,6 @@ export default {
 </script>
 
 <style scoped>
-p {
-  margin: 0px !important;
-}
-
 .about {
   background-color: var(--theme-background-secondary);
   height: 100vh;
