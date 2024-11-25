@@ -1,4 +1,45 @@
 <template lang="pug">
+.experience(:class="mode == 1 ? 'experience-mode' : ''")
+    h1 EN CONSTRUCCIÓN
+</template>
+
+<script>
+import { useModeStore } from '~/store/mode';
+
+export default {
+    setup() {
+        const modeStore = useModeStore();
+        const mode = computed(() => modeStore.mode);
+
+        return {
+            mode
+        };
+    },
+};
+</script>
+
+<style scoped>
+.experience {
+    background-color: var(--theme-background-secondary);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-mode {
+    height: calc(100vh - 104px);
+}
+
+.experience h1 {
+    color: var(--theme-color-secondary);
+}
+</style>
+
+
+<!-- <template lang="pug">
 .experience(:class="mode == 1 ? 'experience-mode' : ''", ref="container")
     .limit
         .part.left(:class="{'no-hover': isNoneHovered || isRightPinned, 'pinned': isLeftPinned, 'shrinked': isRightPinned, 'fixed': isCenterPinned}", @mouseenter="handleMouseEnterLeft", @mouseleave="handleMouseLeaveLeft")
@@ -368,4 +409,4 @@ export default {
         padding: 0px 60px 0px 0px;
     }
 }
-</style>
+</style> -->

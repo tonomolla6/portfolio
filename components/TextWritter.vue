@@ -9,7 +9,7 @@
 import { useI18n } from "vue-i18n";
 
 const { t } = useI18n();
-const texts = computed(() => [ t('daw'), t('dam'), t('smx'), t('ing') ]);
+const texts = computed(() => [ t('ing'), t('daw'), t('smx') ]);
 const selected = ref("");
 
 let index = 0;

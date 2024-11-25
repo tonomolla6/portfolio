@@ -25,20 +25,16 @@ const routing = [
         slug: "presentation"
     },
     {
-        name: "about",
-        slug: "learn-more-about-me"
-    },
-    {
-        name: "portfolio",
-        slug: "projects"
-    },
-    {
-        name: "experience",
-        slug: "work-experience"
+        name: "projects",
+        slug: "makes"
     },
     {
         name: "skills",
         slug: "all-ive-learned"
+    },
+    {
+        name: "experience",
+        slug: "work-experience"
     },
     {
         name: "contact",
@@ -110,6 +106,11 @@ const nextPageName = computed(() => currentPageIndex.value < routing.length - 1 
 
 .pagination .left p:hover {
     margin-left: 20px;
+}
+
+.pagination svg {
+    transition: 0.3s;
+    margin-top: 8px;
 }
 
 @media (max-width: 1200px) {

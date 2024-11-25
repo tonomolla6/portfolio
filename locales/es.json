@@ -39,5 +39,6 @@
     "chat-with-ai": "Chat con Tono AI",
     "ai-typing": "Tono AI está escribiendo...",
     "initial-greeting": "¡Hola! Soy Tono AI. Estoy aquí para ayudarte con cualquier pregunta sobre mi experiencia, habilidades o proyectos. ¿En qué puedo ayudarte hoy?",
-    "error-message": "Lo siento, ha ocurrido un error al procesar tu mensaje. Por favor, intenta de nuevo más tarde."
+    "error-message": "Lo siento, ha ocurrido un error al procesar tu mensaje. Por favor, intenta de nuevo más tarde.",
+    "makes": "Lo Que He Creado"
 }

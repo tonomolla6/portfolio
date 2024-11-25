@@ -17,10 +17,10 @@
                     path(fill="var(--theme-color-secondary)" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z")
             .options
                 nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/") {{ $t('home') }}
-                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/about") {{ $t('about') }}
-                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/portfolio") {{ $t('portfolio') }}
-                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/experience") {{ $t('experience') }}
+                //- nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/about") {{ $t('about') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/projects") {{ $t('projects') }}
                 nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/skills") {{ $t('skills') }}
+                nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/experience") {{ $t('experience') }}
                 nuxt-link.cursor-hover(@click="handleLinkClick" exact-active-class="active-link" to="/contact") {{ $t('contact') }}
             LangSwitch.switch.cursor-hover
             CopyRight(:open="true").copyright2
